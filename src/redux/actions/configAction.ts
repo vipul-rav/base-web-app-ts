@@ -18,7 +18,7 @@ export const fetchConfig = createAction(actionTypes.FETCH_CONFIG, function prepa
     };
 });
 
-const configSuccess = createAction(actionTypes.FETCH_CONFIG_SUCCESS, function prepare(response) {
+const configSuccess = createAction(actionTypes.FETCH_CONFIG_SUCCESS, function prepare(response: any) {
     return {
         payload: response
     };
@@ -38,7 +38,7 @@ export const fetchContent = createAction(actionTypes.FETCH_CONTENT, function pre
     };
 });
 
-const contentSuccess = createAction(actionTypes.FETCH_CONTENT_SUCCESS, function prepare(response) {
+const contentSuccess = createAction(actionTypes.FETCH_CONTENT_SUCCESS, function prepare(response: any) {
     return {
         meta: { loading: false },
         payload: response

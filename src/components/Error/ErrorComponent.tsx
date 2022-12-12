@@ -1,6 +1,5 @@
 import React, { Component, ErrorInfo } from "react";
 
-  
   interface State {
     hasError: boolean;
   }

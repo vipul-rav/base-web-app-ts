@@ -1,8 +1,7 @@
-import React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { App } from './App';
-import { render } from 'setupTests';
+import { render } from './setupTests';
 
 const content = {
     ExitText: 'Exit',
@@ -10,7 +9,7 @@ const content = {
     loadingText: 'Please wait...'
 };
 
-const setup = (overridesProps) => {
+const setup = (overridesProps?: any) => {
     const props = {
         ...overridesProps
     };

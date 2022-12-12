@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'setupTests';
-import { SampleComponent } from '../SampleComponent';
+import { cleanup } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
+import { render } from '../../../setupTests';
+import { Sample2Container } from '../Sample2Container';
 
 const content = {
     ExitText: 'Exit',
@@ -9,7 +10,7 @@ const content = {
     homePageText: 'Home Page'
 };
 
-const setup = (overridesProps) => {
+const setup = (overridesProps?:any) => {
     const props = {
         content: content,
 
@@ -23,7 +24,7 @@ const setup = (overridesProps) => {
         }
     });
 
-    const { container, getByText } = render(<SampleComponent {...props} store={store} />);
+    const { container, getByText } = render(<Sample2Container {...props} store={store} />);
 
     return {
         props,
@@ -32,18 +33,11 @@ const setup = (overridesProps) => {
     };
 };
 
-describe('Sample Component', () => {
+describe('Sample2 container', () => {
+    afterEach(cleanup);
     it('should render', () => {
-        const overrideProps = {
-            isLoading: true,
-            postList: [
-                {
-                    id: '1',
-                    title: 'title1'
-                }
-            ]
-        };
-        const { container } = setup(overrideProps);
+        const { container } = setup();
+
         expect(container).toMatchSnapshot();
     });
 });

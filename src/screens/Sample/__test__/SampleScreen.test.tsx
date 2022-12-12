@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, cleanup } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
-import { render } from 'setupTests';
+import { render } from '../../../setupTests';
 import { SampleScreen } from '../SampleScreen';
 
 const content = {
@@ -10,7 +10,7 @@ const content = {
     homePageText: 'Home Page'
 };
 
-const setup = (overridesProps) => {
+const setup = (overridesProps?: any) => {
     const props = {
         content: content,
         navigateToNextScreen: jest.fn(),

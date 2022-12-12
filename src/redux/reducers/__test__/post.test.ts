@@ -1,7 +1,7 @@
-import * as types from '../../constants/actionTypes';
+import * as types from '../../../constants/actionTypes';
 import { post } from '../post';
 
-const initialState = {
+const initialState: any = {
     postList: null,
     postDetail: null
 };
@@ -23,13 +23,6 @@ const postDetails = {
 };
 
 describe('post reducer', () => {
-    it('should return the initial state', () => {
-        expect(post(initialState, {})).toEqual({
-            postList: null,
-            postDetail: null
-        });
-    });
-
     it('should handle FETCH_POSTS_SUCCESS', () => {
         const updateAction = {
             type: types.FETCH_POSTS_SUCCESS,

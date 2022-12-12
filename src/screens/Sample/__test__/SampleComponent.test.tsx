@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from 'setupTests';
-import { HeaderComponent } from '../HeaderComponent';
+import { render } from '../../../setupTests';
+import { SampleComponent } from '../SampleComponent';
 import configureMockStore from 'redux-mock-store';
 
 const content = {
@@ -9,7 +9,7 @@ const content = {
     homePageText: 'Home Page'
 };
 
-const setup = (overridesProps) => {
+const setup = (overridesProps?: any) => {
     const props = {
         content: content,
 
@@ -23,7 +23,7 @@ const setup = (overridesProps) => {
         }
     });
 
-    const { container, getByText } = render(<HeaderComponent {...props} store={store} />);
+    const { container, getByText } = render(<SampleComponent {...props} store={store} />);
 
     return {
         props,
@@ -32,9 +32,18 @@ const setup = (overridesProps) => {
     };
 };
 
-describe('Header Component', () => {
+describe('Sample Component', () => {
     it('should render', () => {
-        const { container } = setup();
+        const overrideProps = {
+            isLoading: true,
+            postList: [
+                {
+                    id: '1',
+                    title: 'title1'
+                }
+            ]
+        };
+        const { container } = setup(overrideProps);
         expect(container).toMatchSnapshot();
     });
 });

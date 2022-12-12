@@ -22,7 +22,6 @@
         "axios": "0.26.1",
         "connected-react-router": "6.8.0",
         "cross-spawn": "7.0.3",
-        "fetch-mock": "9.11.0",
         "history": "4.7.2",
         "moment": "2.29.1",
         "node-fetch": "2.6.1",
@@ -47,6 +46,7 @@
         "@types/history": "4.7.11",
         "@types/react-redux": "7.1.23",
         "@types/react-router-dom": "5.3.3",
+        "@types/redux-mock-store": "1.0.3",
         "auto-changelog": "2.2.1",
         "cors": "2.8.5",
         "cypress": "6.3.0",
@@ -56,6 +56,7 @@
         "eslint-plugin-import": "2.22.1",
         "eslint-plugin-react": "7.22.0",
         "express": "4.17.1",
+        "fetch-mock": "9.11.0",
         "husky": "4.3.8",
         "lint-staged": "10.5.3",
         "prettier": "2.2.1"
@@ -65,13 +66,13 @@
         "build": "react-scripts build",
         "test": "react-scripts test --watchAll",
         "eject": "react-scripts eject",
-        "lint": "eslint --ext=js --ext=jsx src/",
-        "lint:fix": "eslint --ext=js --ext=jsx --fix src/",
+        "lint": "eslint --ext=ts --ext=tsx src/",
+        "lint:fix": "eslint --ext=ts --ext=tsx --fix src/",
         "format": "prettier --write \"./src/**/*.(js|jsx|json|yml|yaml|css|scss)\"",
         "test:commit": "react-scripts test --watchAll=false",
         "test:coverage": "npm run test -- --coverage --watchAll=false ",
         "qaCheck": "npm-run-all qa:lint test:coverage",
-        "qa:lint": "eslint --quiet --ext .js --ext .jsx src/",
+        "qa:lint": "eslint --quiet --ext .ts --ext .tsx src/",
         "lint:report": "npm-run-all --parallel lint:totals lint:detail",
         "lint:detail": "node --harmony ./eslint-config/eslint-support/task.eslint-detail.js",
         "lint:totals": "node --harmony ./eslint-config/eslint-support/task.eslint-totals.js",
@@ -85,8 +86,8 @@
         ]
     },
     "eslintIgnore": [
-        "*.test.js",
-        "*.spec.js"
+        "*.test.tsx",
+        "*.spec.tsx"
     ],
     "browserslist": {
         "production": [

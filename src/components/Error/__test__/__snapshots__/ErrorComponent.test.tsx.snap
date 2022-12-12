@@ -11,21 +11,7 @@ exports[`Error Component should render - hasError=false 1`] = `
 exports[`Error Component should render - hasError=true 1`] = `
 <div>
   <div>
-    <h1>
-      Technical Error
-    </h1>
-    <div>
-      <p>
-         
-        There are some technical error
-         
-      </p>
-    </div>
-    <div>
-      <button>
-        Exit
-      </button>
-    </div>
+    test
   </div>
 </div>
 `;

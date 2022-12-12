@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from 'setupTests';
-import { ErrorComponent } from '../ErrorComponent';
+import { render } from '../../../setupTests';
+import { LoaderComponent } from '../LoaderComponent';
 import configureMockStore from 'redux-mock-store';
 
 const content = {
@@ -9,7 +9,7 @@ const content = {
     homePageText: 'Home Page'
 };
 
-const setup = (overridesProps) => {
+const setup = (overridesProps?:any) => {
     const props = {
         content: content,
 
@@ -23,11 +23,7 @@ const setup = (overridesProps) => {
         }
     });
 
-    const { container, getByText } = render(
-        <ErrorComponent {...props} store={store}>
-            <div>test</div>
-        </ErrorComponent>
-    );
+    const { container, getByText } = render(<LoaderComponent {...props} store={store} />);
 
     return {
         props,
@@ -36,26 +32,22 @@ const setup = (overridesProps) => {
     };
 };
 
-describe('Error Component', () => {
-    it('should render - hasError=true', () => {
+describe('Loader Component', () => {
+    it('should render isLoading=true', () => {
         const overrideProps = {
-            hasError: true,
+            isLoading: true,
             content: {
-                errorHeader: 'Technical Error',
-                errorText: 'There are some technical error',
-                ExitText: 'Exit'
+                loadingText: 'Please wait...'
             }
         };
         const { container } = setup(overrideProps);
         expect(container).toMatchSnapshot();
     });
-    it('should render - hasError=false', () => {
+    it('should render isLoading=false', () => {
         const overrideProps = {
-            hasError: false,
+            isLoading: false,
             content: {
-                errorHeader: 'Technical Error',
-                errorText: 'There are some technical error',
-                ExitText: 'Exit'
+                loadingText: 'Please wait...'
             }
         };
         const { container } = setup(overrideProps);
